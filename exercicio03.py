@@ -1,0 +1,42 @@
+"""
+3. Vamos fazer um programa para verificar quem é o assassino de um crime.
+Para descobrir o assassino, a polícia faz um pequeno questionário com 5
+perguntas onde a resposta só pode ser sim ou não:
+
+    a. Mora perto da vítima?
+    b. Já trabalhou com a vítima?
+    c. Telefonou para a vítima?
+    d. Esteve no local do crime?
+    e. Devia para a vítima?
+
+Cada resposta sim dá um ponto para o suspeito. A polícia considera que os
+suspeitos com 5 pontos são os assassinos, com 4 a 3 pontos são cúmplices e
+2 pontos são apenas suspeitos, necessitando outras investigações. Valores
+iguais ou abaixo de 1 são liberados.
+"""
+
+perguntas = [
+    'Mora perto da vítima?',
+    'Já trabalhou com a vítima?',
+    'Telefonou para a vítima?',
+    'Esteve no local do crime?',
+    'Devia para a vítima?'
+]
+
+ponto = 0
+print("Responda com SIM ou NÃO")
+for pergunta in perguntas:
+    resposta = input(pergunta + ": ").upper()
+    if resposta == 'SIM':
+        ponto += 1
+    elif resposta != 'SIM' and resposta != 'NÃO':
+        print("Por favor digite SIM ou NÃO!")
+
+if ponto == 5:
+    print("Você é assasino!")
+if ponto >= 3 and ponto <= 4:
+    print("Você é cúmplice")
+if ponto == 2:
+    print("Você é suspeito e necessita de mais investigação!")
+if ponto <= 1:
+    print("Esta liberado!")
